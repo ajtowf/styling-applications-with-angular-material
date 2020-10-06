@@ -12,7 +12,7 @@ This project was generated with [Angular CLI](https://github.com/angular/angular
 
 To serve the application from a dev server run the following commands:
 
-    git clone https://github.com/ajtowf/styling-angular-applications.git
+    git clone https://github.com/ajtowf/styling-applications-with-angular-material.git
     npm i
     ng build
     ng s -o
@@ -23,11 +23,11 @@ To get more help on the Angular CLI use `ng help` or go check out the [Angular C
 
 ## Screenshots from the application
 
-![Contact Manager Desktop](https://raw.githubusercontent.com/ajtowf/styling-angular-applications/master/screenshots/1.png)
+![Contact Manager Desktop](https://raw.githubusercontent.com/ajtowf/styling-applications-with-angular-material/main/screenshots/1.png)
 
-![Contact Manager Forms](https://raw.githubusercontent.com/ajtowf/styling-angular-applications/master/screenshots/2.png)
+![Contact Manager Forms](https://raw.githubusercontent.com/ajtowf/styling-applications-with-angular-material/main/screenshots/2.png)
 
-![Contact Manager Theming](https://raw.githubusercontent.com/ajtowf/styling-angular-applications/master/screenshots/3.png)
+![Contact Manager Theming](https://raw.githubusercontent.com/ajtowf/styling-applications-with-angular-material/main/screenshots/3.png)
 
-![Contact Manager RTL Mobile](https://raw.githubusercontent.com/ajtowf/styling-angular-applications/master/screenshots/4.png)
+![Contact Manager RTL Mobile](https://raw.githubusercontent.com/ajtowf/styling-applications-with-angular-material/main/screenshots/4.png)
 
