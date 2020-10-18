@@ -2,20 +2,27 @@
 <mat-dialog-content>
   <div class="example-container">
     <mat-form-field appearance="fill">
-      <mat-label>Input</mat-label>
-      <input matInput>
-    </mat-form-field>
-    <br>
-    <mat-form-field appearance="fill">
-      <mat-label>Select</mat-label>
-      <mat-select>
-        <mat-option value="option">Option</mat-option>
+      <mat-label>Avatar</mat-label>
+      <mat-select [(ngModel)]="user.avatar">
+        <mat-select-trigger>
+          <mat-icon svgIcon="{{user.avatar}}"></mat-icon> {{user.avatar}}
+        </mat-select-trigger>
+        <mat-option *ngFor="let avatar of avatars" [value]="avatar">
+          <mat-icon svgIcon="{{avatar}}"></mat-icon> {{avatar}}
+        </mat-option>
       </mat-select>
     </mat-form-field>
     <br>
+
     <mat-form-field appearance="fill">
-      <mat-label>Textarea</mat-label>
-      <textarea matInput></textarea>
+      <mat-label>Name</mat-label>
+      <input matInput [(ngModel)]="user.name" required>
+    </mat-form-field>
+    <br>
+
+    <mat-form-field appearance="fill">
+      <mat-label>Bio</mat-label>
+      <textarea matInput [(ngModel)]="user.bio"></textarea>
     </mat-form-field>
   </div>
 
