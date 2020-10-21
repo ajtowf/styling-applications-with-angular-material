@@ -1,6 +1,6 @@
-# Styling Angular Applications
+# Styling Applications with Angular Material
 
-This project is the application we build throughout the [pluralsight course Angular Material](https://www.pluralsight.com/courses/angular-material).
+This project is the application we build throughout the [pluralsight course Styling Applications with Angular Material](https://www.pluralsight.com/courses/angular-material).
 
 ## Live demo
 
