@@ -8,8 +8,6 @@ The latest version of the master branch can be found running live at [https://st
 
 ## Getting up and running
 
-This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 10.1.4.
-
 To serve the application from a dev server run the following commands:
 
     git clone https://github.com/ajtowf/styling-applications-with-angular-material.git
