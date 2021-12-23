@@ -1,6 +1,6 @@
 // @import '@angular/material/prebuilt-themes/indigo-pink.css';
 
-@use '~@angular/material' as mat;
+@use '@angular/material' as mat;
 @include mat.core();
 
 $candy-app-primary: mat.define-palette(mat.$indigo-palette);
