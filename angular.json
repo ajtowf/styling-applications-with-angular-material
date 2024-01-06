@@ -70,18 +70,18 @@
         "serve": {
           "builder": "@angular-devkit/build-angular:dev-server",
           "options": {
-            "browserTarget": "angularmaterial:build"
+            "buildTarget": "angularmaterial:build"
           },
           "configurations": {
             "production": {
-              "browserTarget": "angularmaterial:build:production"
+              "buildTarget": "angularmaterial:build:production"
             }
           }
         },
         "extract-i18n": {
           "builder": "@angular-devkit/build-angular:extract-i18n",
           "options": {
-            "browserTarget": "angularmaterial:build"
+            "buildTarget": "angularmaterial:build"
           }
         },
         "test": {
@@ -115,5 +115,8 @@
         }
       }
     }
+  },
+  "cli": {
+    "analytics": false
   }
 }
