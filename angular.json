@@ -112,6 +112,23 @@
               "devServerTarget": "angularmaterial:serve:production"
             }
           }
+        },
+        "deploy": {
+          "builder": "@angular/fire:deploy",
+          "options": {
+            "version": 2
+          },
+          "configurations": {
+            "production": {
+              "buildTarget": "angularmaterial:build:production",
+              "serveTarget": "angularmaterial:serve:production"
+            },
+            "development": {
+              "buildTarget": "angularmaterial:build:development",
+              "serveTarget": "angularmaterial:serve:development"
+            }
+          },
+          "defaultConfiguration": "production"
         }
       }
     }
