@@ -1,7 +1,16 @@
 // @import '@angular/material/prebuilt-themes/indigo-pink.css';
 
 @use '@angular/material' as mat;
-@include mat.core();
+// TODO(v15): As of v15 mat.legacy-core no longer includes default typography styles.
+//  The following line adds:
+//    1. Default typography styles for all components
+//    2. Styles for typography hierarchy classes (e.g. .mat-headline-1)
+//  If you specify typography styles for the components you use elsewhere, you should delete this line.
+//  If you don't need the default component typographies but still want the hierarchy styles,
+//  you can delete this line and instead use:
+//    `@include mat.legacy-typography-hierarchy(mat.define-legacy-typography-config());`
+@include mat.all-legacy-component-typographies();
+@include mat.legacy-core();
 
 $candy-app-primary: mat.define-palette(mat.$indigo-palette);
 $candy-app-accent:  mat.define-palette(mat.$pink-palette, A200, A100, A400);
@@ -10,7 +19,7 @@ $candy-app-warn:    mat.define-palette(mat.$red-palette);
 $candy-app-theme: mat.define-light-theme(
     $candy-app-primary, $candy-app-accent, $candy-app-warn);
 
-@include mat.all-component-themes($candy-app-theme);
+@include mat.all-legacy-component-themes($candy-app-theme);
 
 .dark-theme {
     $primary-dark: mat.define-palette(mat.$pink-palette, 700);
@@ -19,7 +28,7 @@ $candy-app-theme: mat.define-light-theme(
 
     $theme-dark: mat.define-dark-theme($primary-dark, $accent-dark, $warn-dark);
 
-    @include mat.all-component-themes($theme-dark);
+    @include mat.all-legacy-component-themes($theme-dark);
 }
 
 html, body { height: 100%; }
