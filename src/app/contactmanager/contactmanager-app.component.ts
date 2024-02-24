@@ -1,14 +1,18 @@
 import { Component, OnInit } from '@angular/core';
 import { MatIconRegistry } from '@angular/material/icon';
 import { DomSanitizer } from '@angular/platform-browser';
+import { SidenavComponent } from './components/sidenav/sidenav.component';
 
 @Component({
-  selector: 'app-contactmanager-app',
-  template: `
+    selector: 'app-contactmanager-app',
+    template: `
     <app-sidenav></app-sidenav>
   `,
-  styles: [
-  ]
+    styles: [],
+    standalone: true,
+    imports: [
+      SidenavComponent
+    ]
 })
 export class ContactmanagerAppComponent implements OnInit {
 

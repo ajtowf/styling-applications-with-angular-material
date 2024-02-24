@@ -3,7 +3,9 @@ import { User } from '../models/user';
 import { HttpClient } from '@angular/common/http';
 import { BehaviorSubject, Observable } from 'rxjs';
 
-@Injectable()
+@Injectable({
+  providedIn: 'root',
+})
 export class UserService {
 
   private _users: BehaviorSubject<User[]>;

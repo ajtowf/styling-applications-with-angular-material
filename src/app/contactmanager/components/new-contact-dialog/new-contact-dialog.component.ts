@@ -1,13 +1,23 @@
 import { Component, OnInit } from '@angular/core';
-import { FormControl, Validators } from '@angular/forms';
-import { MatDialogRef } from '@angular/material/dialog';
+import { FormControl, Validators, FormsModule, ReactiveFormsModule } from '@angular/forms';
+import { MatDialogRef, MatDialogTitle, MatDialogContent, MatDialogActions } from '@angular/material/dialog';
 import { User } from '../../models/user';
 import { UserService } from '../../services/user.service';
+import { MatButtonModule } from '@angular/material/button';
+import { MatDatepickerModule } from '@angular/material/datepicker';
+import { MatInputModule } from '@angular/material/input';
+import { MatOptionModule } from '@angular/material/core';
+import { CommonModule } from '@angular/common';
+import { MatIconModule } from '@angular/material/icon';
+import { MatSelectModule } from '@angular/material/select';
+import { MatFormFieldModule } from '@angular/material/form-field';
 
 @Component({
-  selector: 'app-new-contact-dialog',
-  templateUrl: './new-contact-dialog.component.html',
-  styleUrls: ['./new-contact-dialog.component.scss']
+    selector: 'app-new-contact-dialog',
+    templateUrl: './new-contact-dialog.component.html',
+    styleUrls: ['./new-contact-dialog.component.scss'],
+    standalone: true,
+    imports: [CommonModule, MatDialogTitle, MatDialogContent, MatFormFieldModule, MatSelectModule, FormsModule, MatIconModule, MatOptionModule, MatInputModule, ReactiveFormsModule, MatDatepickerModule, MatDialogActions, MatButtonModule]
 })
 export class NewContactDialogComponent implements OnInit {
 
