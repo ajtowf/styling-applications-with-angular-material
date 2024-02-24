@@ -1,18 +1,26 @@
 import { AfterViewInit, Component, Input, OnChanges, ViewChild } from '@angular/core';
+import { CommonModule } from '@angular/common';
+
 import { MatPaginator, MatPaginatorModule } from '@angular/material/paginator';
 import { MatSort, MatSortModule } from '@angular/material/sort';
 import { MatTableDataSource, MatTableModule } from '@angular/material/table';
-import { Note } from '../../models/note';
-import { CommonModule } from '@angular/common';
 import { MatInputModule } from '@angular/material/input';
 import { MatFormFieldModule } from '@angular/material/form-field';
+
+import { Note } from '../../models/note';
 
 @Component({
     selector: 'app-notes',
     templateUrl: './notes.component.html',
     styleUrls: ['./notes.component.scss'],
     standalone: true,
-    imports: [CommonModule, MatFormFieldModule, MatInputModule, MatTableModule, MatSortModule, MatPaginatorModule]
+    imports: [
+      CommonModule, 
+      MatFormFieldModule, 
+      MatInputModule, 
+      MatTableModule, 
+      MatSortModule, 
+      MatPaginatorModule]
 })
 export class NotesComponent implements OnChanges, AfterViewInit  {
 
@@ -20,8 +28,6 @@ export class NotesComponent implements OnChanges, AfterViewInit  {
   
   displayedColumns: string[] = ['position', 'title', 'date' ];
   dataSource = new MatTableDataSource<Note>();
-
-  constructor() { }
 
   @ViewChild(MatPaginator) paginator!: MatPaginator;
   @ViewChild(MatSort) sort!: MatSort;

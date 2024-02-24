@@ -1,16 +1,21 @@
-import { BreakpointObserver, BreakpointState } from '@angular/cdk/layout';
-import { Component, OnInit, ViewChild } from '@angular/core';
-import { MatSidenav, MatSidenavModule } from '@angular/material/sidenav';
-import { Router, RouterLink, RouterOutlet } from '@angular/router';
-import { Observable } from 'rxjs';
-import { User } from '../../models/user';
-import { UserService } from '../../services/user.service';
-import { ToolbarComponent } from '../toolbar/toolbar.component';
-import { MatIconModule } from '@angular/material/icon';
+import { Component, OnInit, ViewChild, inject } from '@angular/core';
 import { CommonModule } from '@angular/common';
+import { Router, RouterLink, RouterOutlet } from '@angular/router';
+
+import { MatSidenav, MatSidenavModule } from '@angular/material/sidenav';
+import { MatIconModule } from '@angular/material/icon';
 import { MatListModule } from '@angular/material/list';
 import { MatToolbarModule } from '@angular/material/toolbar';
-import { BidiModule, Direction } from '@angular/cdk/bidi';
+
+import { BreakpointObserver, BreakpointState } from '@angular/cdk/layout';
+import { Direction } from '@angular/cdk/bidi';
+
+import { ToolbarComponent } from '../toolbar/toolbar.component';
+
+import { User } from '../../models/user';
+import { UserService } from '../../services/user.service';
+
+import { Observable } from 'rxjs';
 
 const SMALL_WIDTH_BREAKPOINT = 720;
 
@@ -19,7 +24,16 @@ const SMALL_WIDTH_BREAKPOINT = 720;
     templateUrl: './sidenav.component.html',
     styleUrls: ['./sidenav.component.scss'],
     standalone: true,
-    imports: [CommonModule, MatSidenavModule, BidiModule, MatToolbarModule, MatListModule, RouterLink, MatIconModule, ToolbarComponent, RouterOutlet]
+    imports: [
+      CommonModule, 
+      MatSidenavModule, 
+      MatToolbarModule, 
+      MatListModule, 
+      RouterLink, 
+      MatIconModule, 
+      ToolbarComponent, 
+      RouterOutlet
+    ]
 })
 export class SidenavComponent implements OnInit {
 
@@ -29,10 +43,9 @@ export class SidenavComponent implements OnInit {
   isDarkTheme: boolean = false;
   dir: Direction = 'ltr';
 
-  constructor(
-    private breakpointObserver: BreakpointObserver,
-    private userService: UserService,
-    private router: Router) { }
+  private breakpointObserver = inject(BreakpointObserver);
+  private userService = inject(UserService);
+  private router = inject(Router);
 
   @ViewChild(MatSidenav) sidenav!: MatSidenav;
 

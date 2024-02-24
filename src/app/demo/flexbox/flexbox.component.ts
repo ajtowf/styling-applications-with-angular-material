@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component } from '@angular/core';
 
 @Component({
     selector: 'app-flexbox',
@@ -6,11 +6,5 @@ import { Component, OnInit } from '@angular/core';
     styleUrls: ['./flexbox.component.scss'],
     standalone: true
 })
-export class FlexboxComponent implements OnInit {
-
-  constructor() { }
-
-  ngOnInit(): void {
-  }
-
+export class FlexboxComponent {
 }
