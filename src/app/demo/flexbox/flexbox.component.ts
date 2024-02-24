@@ -1,15 +1,10 @@
-import { Component, OnInit } from '@angular/core';
+import { Component } from '@angular/core';
 
 @Component({
-  selector: 'app-flexbox',
-  templateUrl: './flexbox.component.html',
-  styleUrls: ['./flexbox.component.scss']
+    selector: 'app-flexbox',
+    templateUrl: './flexbox.component.html',
+    styleUrls: ['./flexbox.component.scss'],
+    standalone: true
 })
-export class FlexboxComponent implements OnInit {
-
-  constructor() { }
-
-  ngOnInit(): void {
-  }
-
+export class FlexboxComponent {
 }

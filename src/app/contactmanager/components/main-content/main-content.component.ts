@@ -1,19 +1,37 @@
-import { Component, OnInit } from '@angular/core';
-import { User } from '../../models/user';
+import { Component, OnInit, inject } from '@angular/core';
+import { CommonModule } from '@angular/common';
+
 import { ActivatedRoute } from '@angular/router';
+
+import { NotesComponent } from '../notes/notes.component';
+import { MatTabsModule } from '@angular/material/tabs';
+import { MatIconModule } from '@angular/material/icon';
+import { MatCardModule } from '@angular/material/card';
+import { MatProgressSpinnerModule } from '@angular/material/progress-spinner';
+
+import { User } from '../../models/user';
 import { UserService } from '../../services/user.service';
 
 @Component({
-  selector: 'app-main-content',
-  templateUrl: './main-content.component.html',
-  styleUrls: ['./main-content.component.scss']
+    selector: 'app-main-content',
+    templateUrl: './main-content.component.html',
+    styleUrls: ['./main-content.component.scss'],
+    standalone: true,
+    imports: [
+      CommonModule, 
+      MatProgressSpinnerModule, 
+      MatCardModule, 
+      MatIconModule, 
+      MatTabsModule, 
+      NotesComponent
+    ]
 })
 export class MainContentComponent implements OnInit {
 
-  user: User;
-  constructor(
-    private route: ActivatedRoute,
-    private service: UserService) { }
+  user: User | null | undefined;
+  
+  private route = inject(ActivatedRoute);
+  private userService = inject(UserService);
 
   ngOnInit(): void {
     this.route.params.subscribe(params => {
@@ -21,13 +39,12 @@ export class MainContentComponent implements OnInit {
       if (!id) id = 1;
       this.user = null;
 
-      this.service.users.subscribe(users => {
+      this.userService.users.subscribe(users => {
         if (users.length == 0) return;
 
         setTimeout(() => {
-          this.user = this.service.userById(id);
+          this.user = this.userService.userById(id);
         }, 500)
-
       });
 
     })
