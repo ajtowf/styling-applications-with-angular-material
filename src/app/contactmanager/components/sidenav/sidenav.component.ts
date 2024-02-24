@@ -10,7 +10,7 @@ import { MatIconModule } from '@angular/material/icon';
 import { CommonModule } from '@angular/common';
 import { MatListModule } from '@angular/material/list';
 import { MatToolbarModule } from '@angular/material/toolbar';
-import { BidiModule } from '@angular/cdk/bidi';
+import { BidiModule, Direction } from '@angular/cdk/bidi';
 
 const SMALL_WIDTH_BREAKPOINT = 720;
 
@@ -23,18 +23,18 @@ const SMALL_WIDTH_BREAKPOINT = 720;
 })
 export class SidenavComponent implements OnInit {
 
-  public isScreenSmall: boolean;
+  public isScreenSmall: boolean = false;
 
-  users: Observable<User[]>;
+  users!: Observable<User[]>;
   isDarkTheme: boolean = false;
-  dir: string = 'ltr';
+  dir: Direction = 'ltr';
 
   constructor(
     private breakpointObserver: BreakpointObserver,
     private userService: UserService,
     private router: Router) { }
 
-  @ViewChild(MatSidenav) sidenav: MatSidenav;
+  @ViewChild(MatSidenav) sidenav!: MatSidenav;
 
   toggleTheme() {
     this.isDarkTheme = !this.isDarkTheme;

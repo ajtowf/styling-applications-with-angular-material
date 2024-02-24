@@ -18,7 +18,7 @@ import { CommonModule } from '@angular/common';
 })
 export class MainContentComponent implements OnInit {
 
-  user: User;
+  user: User | null | undefined;
   constructor(
     private route: ActivatedRoute,
     private service: UserService) { }

@@ -1,4 +1,4 @@
-import { AfterViewInit, Component, Input, OnInit, ViewChild } from '@angular/core';
+import { AfterViewInit, Component, Input, OnChanges, ViewChild } from '@angular/core';
 import { MatPaginator, MatPaginatorModule } from '@angular/material/paginator';
 import { MatSort, MatSortModule } from '@angular/material/sort';
 import { MatTableDataSource, MatTableModule } from '@angular/material/table';
@@ -14,24 +14,24 @@ import { MatFormFieldModule } from '@angular/material/form-field';
     standalone: true,
     imports: [CommonModule, MatFormFieldModule, MatInputModule, MatTableModule, MatSortModule, MatPaginatorModule]
 })
-export class NotesComponent implements OnInit, AfterViewInit  {
+export class NotesComponent implements OnChanges, AfterViewInit  {
 
-  @Input() notes: Note[];
+  @Input() notes!: Note[];
   
   displayedColumns: string[] = ['position', 'title', 'date' ];
-  dataSource: MatTableDataSource<Note>;
+  dataSource = new MatTableDataSource<Note>();
 
   constructor() { }
 
-  @ViewChild(MatPaginator) paginator: MatPaginator;
-  @ViewChild(MatSort) sort: MatSort;
+  @ViewChild(MatPaginator) paginator!: MatPaginator;
+  @ViewChild(MatSort) sort!: MatSort;
 
   ngAfterViewInit() {
     this.dataSource.paginator = this.paginator;
     this.dataSource.sort = this.sort;
   }
   
-  ngOnInit(): void {
+  ngOnChanges(): void {
     this.dataSource = new MatTableDataSource<Note>(this.notes);
   }
 

@@ -25,7 +25,7 @@ export class NewContactDialogComponent implements OnInit {
     'svg-1', 'svg-2', 'svg-3', 'svg-4'
   ];
 
-  user: User;
+  user!: User;
   constructor(
     private dialogRef: MatDialogRef<NewContactDialogComponent>,
     private userService: UserService) { }
@@ -41,12 +41,10 @@ export class NewContactDialogComponent implements OnInit {
   }
 
   save() {
-    this.user.name = this.name.value;
+    this.user.name = this.name.value ? this.name.value : '';
 
-    this.userService.addUser(this.user).then(user => {
-      this.dialogRef.close(user);
-    });
-    
+    let addedUser = this.userService.addUser(this.user);
+    this.dialogRef.close(addedUser);
   }
 
   dismiss() {
